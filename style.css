@@ -1,0 +1,503 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #c71585 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.heart {
+    width: 100px;
+    height: 90px;
+    position: relative;
+    margin: 0 auto 20px;
+    animation: pulse 1.5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    width: 52px;
+    height: 80px;
+    position: absolute;
+    left: 50px;
+    top: 0;
+    background: #ff1493;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.love-text {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.valentinka-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+}
+
+.letter-text {
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: left;
+    color: #333;
+    line-height: 1.6;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+.letter-text p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.back {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2em; }
+    .love-text { font-size: 1.2em; }
+    .letter-text { padding: 20px; }
+}
+
+#hearts-trail {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+.heart-trail {
+    position: absolute !important;
+    width: 24px;
+    height: 21px;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 10001;
+    pointer-events: none;
+}
+
+.heart-trail::before,
+.heart-trail::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    background: #dc143c;
+    border-radius: 12px 12px 0 0;
+    top: 0;
+}
+
+.heart-trail::before {
+    left: 6px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart-trail::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart-trail-glow {
+    position: absolute;
+    width: 28px;
+    height: 25px;
+    left: -2px;
+    top: -2px;
+    background: radial-gradient(circle, rgba(255,20,147,0.6) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    z-index: -1;
+}
+
+/* === ФОН ДЛЯ ГЛАВНОЙ СТРАНИЦЫ === */
+.home-page {
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.home-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4); /* Розовый оверлей */
+    z-index: -1;
+}
+
+/* Улучшение читаемости текста на фоне */
+.home-page .container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px 20px;
+}
+
+/* === ФОН ДЛЯ СТРАНИЦЫ ПИСЬМА === */
+.letter-page {
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.letter-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4); /* Розовый оверлей */
+    z-index: -1;
+}
+
+/* Улучшение читаемости текста письма */
+.letter-page .container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 45px 25px;
+}
+
+.letter-page .letter-text {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+}
+
+/* === ФОН ДЛЯ СТРАНИЦЫ СЧАСТЬЯ === */
+.happiness-page {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #dc143c 100%);
+    position: relative;
+}
+
+.happiness-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g" cx="50%%" cy="50%%" r="50%%"><stop offset="0%%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%%" stop-color="%23ff69b4" stop-opacity="0.3"/></radialGradient></defs><circle cx="20" cy="20" r="3" fill="url(%23g)"><animate attributeName="cy" values="20;80;20" dur="3s" repeatCount="indefinite"/></circle><circle cx="80" cy="80" r="3" fill="url(%23g)"><animate attributeName="cy" values="80;20;80" dur="4s" repeatCount="indefinite"/></circle></svg>');
+    animation: sparkle 20s linear infinite;
+    z-index: -1;
+}
+
+/* === ФОН ДЛЯ СТРАНИЦЫ СЧАСТЬЯ === */
+.happiness-page {
+    background-image: url('image1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.happiness-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4); /* Розовый оверлей */
+    z-index: -1;
+}
+
+.time-counter {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.time-counter h2 {
+    color: white;
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.time-display {
+    background: rgba(255, 255, 255, 0.95);
+    color: #dc143c;
+    font-size: 2.2em;
+    font-weight: bold;
+    font-family: 'Arial Black', Arial, sans-serif;
+    padding: 25px 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border: 3px solid rgba(255, 20, 147, 0.5);
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+    min-height: 80px;
+    display: inline-block;
+    letter-spacing: 2px;
+}
+
+.happiness-page .container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 45px 25px;
+}
+
+@keyframes pulse-glow {
+    0% { 
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3), 0 0 20px rgba(255, 20, 147, 0.4);
+    }
+    100% { 
+        box-shadow: 0 20px 45px rgba(0,0,0,0.4), 0 0 40px rgba(255, 20, 147, 0.7);
+    }
+}
+
+
+.time-counter {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.time-counter h2 {
+    color: white;
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.time-display {
+    background: rgba(255, 255, 255, 0.95);
+    color: #dc143c;
+    font-size: 2.5em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+    padding: 30px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 2px solid rgba(255, 20, 147, 0.4);
+    display: inline-block;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+
+
+
+
+@keyframes pulse-glow {
+    0% { 
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3), 0 0 20px rgba(255, 20, 147, 0.4);
+    }
+    100% { 
+        box-shadow: 0 20px 45px rgba(0,0,0,0.4), 0 0 40px rgba(255, 20, 147, 0.7);
+    }
+}
+
+/* ========================================
+   АДАПТИВНЫЙ ДИЗАЙН ДЛЯ МОБИЛЬНЫХ
+   ======================================= */
+
+/* ПЛАНШЕТЫ (768px и меньше) */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px !important;
+        max-width: 95% !important;
+    }
+    
+    h1 {
+        font-size: 2em !important;
+    }
+    
+    .love-text {
+        font-size: 1.3em !important;
+    }
+    
+    .btn {
+        padding: 12px 25px !important;
+        font-size: 1.1em !important;
+        margin: 5px !important;
+    }
+    
+    nav {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
+    .valentinka-img {
+        max-width: 90% !important;
+        margin: 20px auto !important;
+    }
+    
+    .letter-text {
+        padding: 20px !important;
+        font-size: 1em !important;
+    }
+    
+    .time-display {
+        font-size: 1.5em !important;
+        padding: 20px 30px !important;
+    }
+    
+    .time-counter h2 {
+        font-size: 1.3em !important;
+    }
+}
+
+/* ТЕЛЕФОНЫ (480px и меньше) */
+@media (max-width: 480px) {
+    body {
+        background-attachment: scroll !important; /* Фон не фиксируется на мобилках */
+    }
+    
+    .container {
+        padding: 10px !important;
+        margin: 10px !important;
+    }
+    
+    h1 {
+        font-size: 1.6em !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .love-text, .time-counter h2 {
+        font-size: 1.1em !important;
+        line-height: 1.4 !important;
+    }
+    
+    .btn {
+        padding: 14px 30px !important;
+        font-size: 1em !important;
+        width: 90% !important;
+        max-width: 280px !important;
+        display: block !important;
+        margin: 10px auto !important;
+    }
+    
+    .letter-text {
+        padding: 15px !important;
+        font-size: 16px !important; /* Минимум 16px для читаемости */
+        line-height: 1.5 !important;
+    }
+    
+    .time-display {
+        font-size: 1.3em !important;
+        padding: 15px 20px !important;
+        line-height: 1.3 !important;
+        word-break: break-word !important;
+    }
+    
+    .heart {
+        width: 60px !important;
+        height: 54px !important;
+    }
+    
+    /* Сердечки поменьше на телефоне */
+    .heart-trail {
+        width: 18px !important;
+        height: 16px !important;
+    }
+    
+    .heart-trail::before,
+    .heart-trail::after {
+        width: 9px !important;
+        height: 13px !important;
+    }
+}
+
+/* МАЛЕНЬКИЕ ТЕЛЕФОНЫ (320px и меньше) */
+@media (max-width: 320px) {
+    .container {
+        padding: 8px !important;
+    }
+    
+    h1 {
+        font-size: 1.4em !important;
+    }
+    
+    .time-display {
+        font-size: 1.1em !important;
+        padding: 12px 15px !important;
+    }
+    
+    .btn {
+        padding: 12px 20px !important;
+        font-size: 0.95em !important;
+    }
+}
