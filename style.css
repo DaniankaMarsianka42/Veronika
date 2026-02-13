@@ -501,3 +501,56 @@ nav {
         font-size: 0.95em !important;
     }
 }
+
+
+/* ОПТИМИЗАЦИЯ ФОТОГРАФИЙ ДЛЯ ТЕЛЕФОНОВ */
+@media (max-width: 768px) {
+    /* Главная страница фон */
+    .home-page {
+        background-size: contain !important;
+        background-position: center !important;
+        background-attachment: scroll !important;
+    }
+    
+    /* Страница письма фон */
+    .letter-page {
+        background-size: contain !important;
+        background-position: center !important;
+        background-attachment: scroll !important;
+    }
+    
+    /* Страница счастья фон */
+    .happiness-page {
+        background-size: contain !important;
+        background-position: center !important;
+        background-attachment: scroll !important;
+    }
+    
+    /* Валентинка картинка */
+    .valentinka-img {
+        max-width: 95vw !important;
+        height: auto !important;
+        width: auto !important;
+        max-height: 60vh !important;
+        object-fit: contain !important;
+        border-radius: 15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Еще меньше на маленьких экранах */
+    .valentinka-img {
+        max-width: 90vw !important;
+        max-height: 50vh !important;
+        margin: 15px auto !important;
+    }
+    
+    /* Фоны еще лучше подстраиваются */
+    .home-page,
+    .letter-page,
+    .happiness-page {
+        background-size: cover !important;
+        background-position: center top !important;
+    }
+}
+
